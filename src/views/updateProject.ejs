@@ -1,0 +1,29 @@
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+            <form id="updateForm" data-doc="<%=project._id%>" action='/project/update/<%=project._id%>' , method='post'
+                , enctype='application/x-www-form-urlencoded'>
+                <label for="projectName">Project name:</label>
+                <input type="text" id="projectName" name="projectName" value="<%= project.projectName%>">
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" cols="30" rows="10"><%= project.description%></textarea>
+                <label for="cost">Cost:</label>
+                <input type="number" id="cost" name="cost" min="0" value="<%= project.cost%>">
+                <label for="jobsDone">Jobs done:</label>
+                <textarea name="jobsDone" id="jobsDone" cols="30" rows="10"><%= project.jobsDone%></textarea>
+                <label for="members">Members:</label>
+                <textarea name="members" id="members" cols="30" rows="10" required><%= project.members%></textarea>
+                <label for="startDate">Start date:</label>
+                <input type="date" id="startDate" name="startDate"
+                    value="<%= project.startDate.toLocaleString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' })%>">
+                <label for="endDate">End date:</label>
+                <input type="date" id="endDate" name="endDate"
+                    value="<%= project.endDate.toLocaleString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' })%>">
+                <input type="hidden" , value="PUT" , name="_method">
+
+                <button type="submit" id="submitButton">Update</button>
+            </form>
+    </body>
+
+    </html>

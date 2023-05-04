@@ -1,0 +1,43 @@
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+            <div id="projectInfo">
+                <p class="removeTop">
+                    <b>Project Name:</b>
+                    <%=project.projectName%>
+                </p>
+                <p>
+                    <b>Description:</b>
+                    <%=project.description%>
+                </p>
+                <p>
+                    <b>Jobs done:</b>
+                    <%=project.jobsDone%>
+                </p>
+                <p>
+                    <b>Members:</b>
+                    <%=project.members%>
+                </p>
+                <p>
+                    <b>Start date:</b>
+                    <%= new Date(project.startDate).toLocaleDateString()%>
+                </p>
+                <p>
+                    <b>End date:</b>
+                    <%= new Date(project.endDate).toLocaleDateString()%>
+                </p>
+                <p class="removeBottom">
+                    <b>cost:</b>
+                    <%=project.cost%>
+                </p>
+                <div id="updateDeleteButtons">
+                    <a href="/project/update/<%= project._id%>"><button>Update</button></a>
+                    <a class="delete" data-doc="<%= project._id %>"><button>Delete</button></a>
+                </div>
+            </div>
+
+            <script src="/index.js"></script>
+    </body>
+
+    </html>
